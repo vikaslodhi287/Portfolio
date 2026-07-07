@@ -1,0 +1,17 @@
+{
+  "name": "production-mern-portfolio-cms",
+  "version": "1.0.0",
+  "description": "Production Ready Full Stack MERN Portfolio with CMS Panel",
+  "main": "server/server.js",
+  "scripts": {
+    "bootstrap": "npm install && cd server && npm install && cd ../client && npm install",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
