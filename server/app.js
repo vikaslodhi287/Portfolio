@@ -25,12 +25,45 @@ const app = express();
 // 1. Core Platform Security Layers
 app.use(helmet());
 
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:3000',
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+/* ==========================================================
+   CORS CONFIGURATION
+========================================================== */
+
+const allowedOrigins = [
+  "http://localhost:5173", // Vite Frontend
+  "http://localhost:3000", // Future/Legacy Frontend
+  process.env.CLIENT_URL,  // Production Frontend
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow Postman, Thunder Client, curl, etc.
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error(`CORS blocked for origin: ${origin}`)
+      );
+    },
+
+    credentials: true,
+
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+    ],
+
+    optionsSuccessStatus: 200,
+  })
+);
 
 // 2. Real-Time Request Logging Pipeline
 if (process.env.NODE_ENV === 'development') {
