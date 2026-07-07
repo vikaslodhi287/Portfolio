@@ -1,0 +1,181 @@
+/* ==========================================================
+   GLOBAL
+   Global application styles & utility classes
+========================================================== */
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* ==========================================================
+   ROOT
+========================================================== */
+
+#root {
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+  background: $color-bg-primary;
+  color: $color-text-primary;
+  overflow-x: hidden;
+}
+
+/* ==========================================================
+   APP
+========================================================== */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container {
+  @include container;
+}
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.section {
+  @include section-spacing;
+  position: relative;
+}
+
+.section-title {
+  margin-bottom: $space-lg;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  color: $color-text-secondary;
+  margin-bottom: $space-3xl;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.grid {
+  display: grid;
+  gap: $space-xl;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-xl;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-xl;
+}
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass {
+  @include glass;
+}
+
+/* ==========================================================
+   FLEX UTILITIES
+========================================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+/* ==========================================================
+   BUTTON UTILITIES
+========================================================== */
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-glass {
+  @include button-glass;
+}
+
+/* ==========================================================
+   SPACING UTILITIES
+========================================================== */
+
+.mt-lg {
+  margin-top: $space-lg;
+}
+
+.mt-xl {
+  margin-top: $space-xl;
+}
+
+.mb-lg {
+  margin-bottom: $space-lg;
+}
+
+.mb-xl {
+  margin-bottom: $space-xl;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@include laptop {
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@include tablet {
+
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@include mobile {
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding-block: $space-3xl;
+  }
+
+}

@@ -1,0 +1,136 @@
+/* ==========================================================
+   TYPOGRAPHY
+   Global typography system
+========================================================== */
+
+@use "../abstracts/variables" as *;
+
+/* ==========================================================
+   FONT VARIABLES
+========================================================== */
+
+:root {
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-text-primary;
+}
+
+/* ==========================================================
+   HEADINGS
+========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-white;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================
+   PARAGRAPH
+========================================================== */
+
+p {
+  color: $color-text-secondary;
+  line-height: 1.8;
+}
+
+/* ==========================================================
+   SMALL TEXT
+========================================================== */
+
+small {
+  font-size: 0.875rem;
+  color: $color-text-secondary;
+}
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+label {
+  font-weight: 600;
+  color: $color-white;
+}
+
+/* ==========================================================
+   STRONG
+========================================================== */
+
+strong {
+  color: $color-white;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   CODE
+========================================================== */
+
+code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================
+   UTILITY CLASSES
+========================================================== */
+
+.text-gradient {
+  background: $gradient-primary;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: $color-white;
+}
+
+.text-muted {
+  color: $color-text-secondary;
+}

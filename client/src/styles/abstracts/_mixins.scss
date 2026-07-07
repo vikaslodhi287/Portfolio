@@ -1,0 +1,187 @@
+@use "./variables" as *;
+
+/* ==========================================================
+   FLEX UTILITIES
+========================================================== */
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+@mixin container {
+  width: min(100% - 2rem, $container-width);
+  margin-inline: auto;
+}
+
+/* ==========================================================
+   GLASSMORPHISM
+========================================================== */
+
+@mixin glass {
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur($blur-md);
+  -webkit-backdrop-filter: blur($blur-md);
+  border-radius: $radius-lg;
+}
+
+/* ==========================================================
+   TEXT GRADIENT
+========================================================== */
+
+@mixin gradient-text {
+  background: $gradient-primary;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================
+   PRIMARY BUTTON
+========================================================== */
+
+@mixin button-primary {
+
+  @include flex-center;
+
+  padding: 0.95rem 2rem;
+
+  border: none;
+
+  border-radius: $radius-pill;
+
+  background: $gradient-primary;
+
+  color: $color-white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: $transition-normal;
+
+  box-shadow: $shadow-sm;
+
+  &:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: $shadow-md;
+
+  }
+
+}
+
+/* ==========================================================
+   GLASS BUTTON
+========================================================== */
+
+@mixin button-glass {
+
+  @include glass;
+
+  @include flex-center;
+
+  padding: 0.95rem 2rem;
+
+  cursor: pointer;
+
+  transition: $transition-normal;
+
+  color: $color-text-primary;
+
+  &:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: $shadow-sm;
+
+  }
+
+}
+
+/* ==========================================================
+   SECTION SPACING
+========================================================== */
+
+@mixin section-spacing {
+  padding-block: $space-5xl;
+}
+
+/* ==========================================================
+   ABSOLUTE CENTER
+========================================================== */
+
+@mixin absolute-center {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@mixin mobile {
+
+  @media (max-width: $mobile) {
+
+    @content;
+
+  }
+
+}
+
+@mixin tablet {
+
+  @media (max-width: $tablet) {
+
+    @content;
+
+  }
+
+}
+
+@mixin laptop {
+
+  @media (max-width: $laptop) {
+
+    @content;
+
+  }
+
+}
+
+@mixin desktop {
+
+  @media (max-width: $desktop) {
+
+    @content;
+
+  }
+
+}
