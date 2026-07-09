@@ -1,0 +1,48 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.scrollIndicator {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 32px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: $color-muted;
+
+  cursor: pointer;
+
+  animation: floatScroll 2s ease-in-out infinite;
+}
+
+.scrollIndicator span {
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.scrollIndicator svg {
+  color: $color-primary;
+}
+
+@keyframes floatScroll {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}

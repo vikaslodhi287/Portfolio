@@ -5,6 +5,9 @@ import HeroHeading from "./components/HeroHeading";
 import HeroDescription from "./components/HeroDescription";
 import HeroButtons from "./components/HeroButtons";
 import HeroImage from "./components/HeroImage";
+import HeroStats from "./components/HeroStats";
+import HeroTechStack from "./components/HeroTechStack";
+import HeroScrollIndicator from "./components/HeroScrollIndicator";
 
 function Hero() {
   return (
@@ -17,6 +20,9 @@ function Hero() {
             <HeroDescription />
             <HeroButtons />
             <HeroSocial />
+            <HeroStats />
+            <HeroTechStack />
+            <HeroScrollIndicator />
           </div>
         </div>
 

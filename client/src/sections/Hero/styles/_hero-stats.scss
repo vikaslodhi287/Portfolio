@@ -1,1 +1,52 @@
 @use "../../../styles/abstracts/variables" as *;
+
+.stats {
+  display: flex;
+  gap: 18px;
+
+  margin-top: 40px;
+
+  flex-wrap: wrap;
+}
+
+.statCard {
+  min-width: 140px;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  backdrop-filter: blur(18px);
+
+  transition: .3s;
+}
+
+.statCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(124,92,252,.4);
+
+  box-shadow: 0 10px 35px rgba(124,92,252,.18);
+}
+
+.statCard h3 {
+  color: $color-primary;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+.statCard p {
+  color: $color-body;
+
+  font-size: 15px;
+
+  margin: 0;
+}

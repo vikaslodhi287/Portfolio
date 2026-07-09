@@ -1,35 +1,73 @@
-import { body } from 'express-validator';
+import { body } from "express-validator";
 
 export const profileRules = [
-  body('fullName')
+  body("fullName")
     .trim()
     .notEmpty()
-    .withMessage('Full name string property is required'),
-  body('title')
+    .withMessage("Full name is required"),
+
+  body("title")
     .trim()
     .notEmpty()
-    .withMessage('Professional sub-headline profile working title is required'),
-  body('bio')
+    .withMessage("Professional title is required"),
+
+  body("tagline")
+    .optional()
+    .trim(),
+
+  body("bio")
     .trim()
     .notEmpty()
-    .withMessage('Biographical profile introduction summary text is required'),
-  body('socialLinks.github')
+    .withMessage("Bio is required"),
+
+  body("availability")
+    .optional()
+    .isBoolean()
+    .withMessage("Availability must be true or false"),
+
+  body("location")
+    .optional()
+    .trim(),
+
+  body("email")
+    .optional()
+    .isEmail()
+    .withMessage("Please provide a valid email"),
+
+  body("yearsOfExperience")
+    .optional()
+    .isInt({ min: 0 }),
+
+  body("projectsCompleted")
+    .optional()
+    .isInt({ min: 0 }),
+
+  body("technologiesKnown")
+    .optional()
+    .isInt({ min: 0 }),
+
+  body("socialLinks.github")
     .optional({ checkFalsy: true })
-    .trim()
     .isURL()
-    .withMessage('GitHub account address must be a valid URL link resource')
-    .matches(/^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_-]+\/?$/)
-    .withMessage('GitHub URL does not match a valid profile handle destination structure'),
-  body('socialLinks.linkedin')
+    .withMessage("Invalid GitHub URL"),
+
+  body("socialLinks.linkedin")
     .optional({ checkFalsy: true })
-    .trim()
     .isURL()
-    .withMessage('LinkedIn profile address must be a valid URL link resource')
-    .matches(/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/)
-    .withMessage('LinkedIn URL does not match a valid profile handle destination structure'),
-  body('socialLinks.twitter')
+    .withMessage("Invalid LinkedIn URL"),
+
+  body("socialLinks.leetcode")
     .optional({ checkFalsy: true })
-    .trim()
-    .isString()
-    .withMessage('Twitter link metadata handle must be a string')
+    .isURL()
+    .withMessage("Invalid LeetCode URL"),
+
+  body("socialLinks.twitter")
+    .optional({ checkFalsy: true })
+    .isURL()
+    .withMessage("Invalid Twitter/X URL"),
+
+  body("socialLinks.portfolio")
+    .optional({ checkFalsy: true })
+    .isURL()
+    .withMessage("Invalid Portfolio URL"),
 ];

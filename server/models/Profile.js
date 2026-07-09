@@ -1,59 +1,188 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const profileSchema = new mongoose.Schema(
   {
+    /* ==========================================
+       BASIC INFORMATION
+    ========================================== */
+
     fullName: {
       type: String,
-      required: [true, 'Full name is required'],
+      required: [true, "Full name is required"],
       trim: true,
+      maxlength: 100,
     },
+
     title: {
       type: String,
-      required: [true, 'Professional working title or headline is required'],
-      trim: true, // e.g., "Full Stack Developer & Cloud Engineer"
+      required: [true, "Professional title is required"],
+      trim: true,
+      maxlength: 100,
     },
+
+    tagline: {
+      type: String,
+      trim: true,
+      maxlength: 150,
+      default: "Building scalable web applications with modern technologies.",
+    },
+
     bio: {
       type: String,
-      required: [true, 'Biographical description text is required'],
+      required: [true, "Biographical description is required"],
       trim: true,
+      maxlength: 600,
     },
+
+    /* ==========================================
+       PROFILE IMAGE
+    ========================================== */
+
     avatar: {
       type: String,
-      required: [true, 'Avatar image URL resource is required'],
+      required: true,
+      trim: true,
     },
+
     avatarPublicId: {
       type: String,
-      required: [true, 'Avatar Cloudinary asset public ID is required'],
+      required: true,
+      trim: true,
     },
+
+    /* ==========================================
+       RESUME
+    ========================================== */
+
     resumeUrl: {
       type: String,
       trim: true,
     },
+
     resumePublicId: {
       type: String,
       trim: true,
     },
+
+    /* ==========================================
+       HERO SECTION
+    ========================================== */
+
+    availability: {
+      type: Boolean,
+      default: true,
+    },
+
+    location: {
+      type: String,
+      trim: true,
+      default: "India",
+    },
+
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      trim: true,
+      lowercase: true,
+    },
+
+    /* ==========================================
+       HERO STATS
+    ========================================== */
+
+    yearsOfExperience: {
+      type: Number,
+      default: 1,
+      min: 0,
+    },
+
+    projectsCompleted: {
+      type: Number,
+      default: 20,
+      min: 0,
+    },
+
+    technologiesKnown: {
+      type: Number,
+      default: 15,
+      min: 0,
+    },
+
+    /* ==========================================
+       SOCIAL LINKS
+    ========================================== */
+
     socialLinks: {
       github: {
         type: String,
         trim: true,
-        match: [/^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_-]+\/?$/, 'Provide a valid GitHub profile link']
       },
+
       linkedin: {
         type: String,
         trim: true,
-        match: [/^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9_-]+\/?$/, 'Provide a valid LinkedIn profile link']
       },
+
+      leetcode: {
+        type: String,
+        trim: true,
+      },
+
       twitter: {
         type: String,
         trim: true,
-      }
-    }
+      },
+
+      portfolio: {
+        type: String,
+        trim: true,
+      },
+
+    },
+    techStack: {
+  type: [
+    {
+      type: String,
+      trim: true,
+    },
+  ],
+  default: [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "JavaScript",
+    "Git",
+  ],
+},
+/* ==========================================
+   CTA BUTTONS
+========================================== */
+
+cta: {
+  hireMeText: {
+    type: String,
+    required: true,
+    trim: true,
+    default: "Hire Me",
+    maxlength: 30,
+  },
+
+  resumeText: {
+    type: String,
+    required: true,
+    trim: true,
+    default: "Download Resume",
+    maxlength: 40,
+  },
+},
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 
-const Profile = mongoose.model('Profile', profileSchema);
+const Profile = mongoose.model("Profile", profileSchema);
+
 export default Profile;
