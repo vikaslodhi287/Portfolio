@@ -1,13 +1,13 @@
-import { ThemeProvider } from "../context/ThemeContext";
-import { NavigationProvider } from "../context/NavigationContext";
+import { NavigationProvider } from "../contexts/NavigationContext";
+import { ProfileProvider } from "../contexts/ProfileContext";
 
 function AppProvider({ children }) {
   return (
-    <ThemeProvider>
-      <NavigationProvider>
+    <NavigationProvider>
+      <ProfileProvider>
         {children}
-      </NavigationProvider>
-    </ThemeProvider>
+      </ProfileProvider>
+    </NavigationProvider>
   );
 }
 

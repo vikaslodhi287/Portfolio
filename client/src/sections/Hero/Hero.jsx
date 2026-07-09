@@ -1,53 +1,28 @@
-import { motion } from "framer-motion";
-import "./hero.scss";
-import HeroGlow from "./HeroGlow";
-
-import HeroLeft from "./HeroLeft";
-import HeroRight from "./HeroRight";
-import useProfile from "../../hooks/useProfile";
+import styles from "./styles/Hero.module.scss";
+import HeroSocial from "./components/HeroSocial";
+import HeroBadge from "./components/HeroBadge";
+import HeroHeading from "./components/HeroHeading";
+import HeroDescription from "./components/HeroDescription";
+import HeroButtons from "./components/HeroButtons";
+import HeroImage from "./components/HeroImage";
 
 function Hero() {
-  const { profile, loading } = useProfile();
-
-  if (loading) {
-    return (
-      <section className="hero">
-        <div className="container">
-          <h2>Loading...</h2>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    
-    <section className="hero">
-        <HeroGlow />
-      <div className="container hero__container">
+    <section className={styles.hero} id="home">
+      <div className={styles.container}>
+        <div className={styles.left}>
+          <div className={styles.content}>
+            <HeroBadge />
+            <HeroHeading />
+            <HeroDescription />
+            <HeroButtons />
+            <HeroSocial />
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-          }}
-        >
-          <HeroLeft profile={profile} />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.2,
-            ease: "easeOut",
-          }}
-        >
-          <HeroRight profile={profile} />
-        </motion.div>
-
+        <div className={styles.right}>
+          <HeroImage />
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,23 @@
+@use "variables" as *;
+
+@mixin transition-fast {
+  transition: all $transition-fast;
+}
+
+@mixin transition-medium {
+  transition: all $transition-medium;
+}
+
+@mixin transition-slow {
+  transition: all $transition-slow;
+}
+
+@mixin hover-lift {
+
+  transition: transform $transition-medium;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+}

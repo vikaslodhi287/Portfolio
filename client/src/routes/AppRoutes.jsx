@@ -13,15 +13,16 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+
         {/* Public Routes */}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
         </Route>
 
         {/* Admin Login */}
         <Route path="/admin/login" element={<AdminLogin />} />
 
-        {/* Protected Admin Routes */}
+        {/* Protected Admin */}
         <Route
           path="/admin"
           element={
@@ -35,6 +36,7 @@ function AppRoutes() {
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
+
       </Routes>
     </BrowserRouter>
   );

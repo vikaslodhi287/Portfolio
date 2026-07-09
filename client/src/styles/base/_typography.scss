@@ -1,29 +1,19 @@
 /* ==========================================================
    TYPOGRAPHY
-   Global typography system
 ========================================================== */
 
 @use "../abstracts/variables" as *;
-
-/* ==========================================================
-   FONT VARIABLES
-========================================================== */
-
-:root {
-  --font-heading: "Plus Jakarta Sans", sans-serif;
-  --font-body: "Inter", sans-serif;
-}
 
 /* ==========================================================
    BODY
 ========================================================== */
 
 body {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: $font-primary;
+  font-size: $fs-body;
+  font-weight: $fw-regular;
   line-height: 1.7;
-  color: $color-text-primary;
+  color: $color-body;
 }
 
 /* ==========================================================
@@ -36,10 +26,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
+  color: $color-heading;
+  font-weight: $fw-bold;
   line-height: 1.2;
-  color: $color-white;
 }
 
 h1 {
@@ -71,17 +60,17 @@ h6 {
 ========================================================== */
 
 p {
-  color: $color-text-secondary;
+  color: $color-body;
   line-height: 1.8;
 }
 
 /* ==========================================================
-   SMALL TEXT
+   SMALL
 ========================================================== */
 
 small {
-  font-size: 0.875rem;
-  color: $color-text-secondary;
+  font-size: $fs-small;
+  color: $color-muted;
 }
 
 /* ==========================================================
@@ -89,8 +78,8 @@ small {
 ========================================================== */
 
 label {
-  font-weight: 600;
-  color: $color-white;
+  color: $color-heading;
+  font-weight: $fw-semibold;
 }
 
 /* ==========================================================
@@ -98,8 +87,8 @@ label {
 ========================================================== */
 
 strong {
-  color: $color-white;
-  font-weight: 700;
+  color: $color-heading;
+  font-weight: $fw-bold;
 }
 
 /* ==========================================================
@@ -107,19 +96,22 @@ strong {
 ========================================================== */
 
 code {
-  font-family: "Fira Code", monospace;
+  font-family: $font-mono;
   font-size: 0.95rem;
 }
 
 /* ==========================================================
-   UTILITY CLASSES
+   UTILITIES
 ========================================================== */
 
 .text-gradient {
-  background: $gradient-primary;
-  background-clip: text;
+  background: linear-gradient(
+    90deg,
+    $color-primary,
+    $color-accent
+  );
+
   -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
@@ -127,10 +119,14 @@ code {
   text-align: center;
 }
 
-.text-white {
-  color: $color-white;
+.text-heading {
+  color: $color-heading;
+}
+
+.text-body {
+  color: $color-body;
 }
 
 .text-muted {
-  color: $color-text-secondary;
+  color: $color-muted;
 }

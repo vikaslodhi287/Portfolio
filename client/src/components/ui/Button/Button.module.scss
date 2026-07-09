@@ -1,0 +1,155 @@
+@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
+.button {
+  @include flex-center;
+
+  position: relative;
+  overflow: hidden;
+  gap: $space-2;
+
+  min-width: max-content;
+  min-height: 48px;
+
+  padding: $space-3 $space-7;
+
+  border: none;
+  border-radius: $radius-md;
+
+  cursor: pointer;
+  user-select: none;
+
+  font-family: $font-primary;
+  font-size: $fs-body;
+  font-weight: $fw-semibold;
+  line-height: 1;
+
+  transition:
+    background-color $transition-medium,
+    color $transition-medium,
+    border-color $transition-medium,
+    transform $transition-fast,
+    box-shadow $transition-medium;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* ===========================
+   Variants
+=========================== */
+
+.primary {
+  background: $color-primary;
+  color: $color-heading;
+  box-shadow: $shadow-glow;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+  }
+}
+
+.secondary {
+  background: $color-card;
+  color: $color-heading;
+  border: 1px solid $color-border;
+
+  &:hover:not(:disabled) {
+    background: $color-elevated;
+  }
+}
+
+.outline {
+  background: transparent;
+  color: $color-heading;
+  border: 1px solid $color-border;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-heading;
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.danger {
+  background: $color-danger;
+  color: $color-heading;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+}
+
+/* ===========================
+   Sizes
+=========================== */
+
+.sm {
+  min-height: 40px;
+  padding: $space-2 $space-5;
+  font-size: $fs-small;
+}
+
+.md {
+  min-height: 48px;
+  padding: $space-3 $space-7;
+  font-size: $fs-body;
+}
+
+.lg {
+  min-height: 56px;
+  padding: $space-4 $space-8;
+  font-size: $fs-body-lg;
+}
+
+/* ===========================
+   States
+=========================== */
+
+.fullWidth {
+  width: 100%;
+}
+
+.loading {
+  pointer-events: none;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+}

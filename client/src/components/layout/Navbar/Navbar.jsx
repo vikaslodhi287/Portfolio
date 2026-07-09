@@ -1,38 +1,27 @@
-import { useEffect, useState } from "react";
-import "./navbar.scss";
+import styles from "./Navbar.module.scss";
 
-import Logo from "./Logo";
-import DesktopMenu from "./DesktopMenu";
-import MobileMenu from "./MobileMenu";
-import ThemeToggle from "./ThemeToggle";
+import Logo from "./components/Logo";
+import DesktopNav from "./components/DesktopNav";
+import ResumeButton from "./components/ResumeButton";
+import ThemeToggle from "./components/ThemeToggle";
+import MenuButton from "./components/MenuButton";
 
 function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`navbar ${
-        isScrolled ? "navbar--scrolled" : ""
-      }`}
-    >
-      <div className="container navbar__container">
-        <Logo />
+    <header className={styles.header}>
+      <div className={styles.navbar}>
+        <div className={styles.left}>
+          <Logo />
+        </div>
 
-        <DesktopMenu />
+        <div className={styles.center}>
+          <DesktopNav />
+        </div>
 
-        <div className="navbar__actions">
+        <div className={styles.right}>
+          <ResumeButton />
           <ThemeToggle />
-          <MobileMenu />
+          <MenuButton />
         </div>
       </div>
     </header>

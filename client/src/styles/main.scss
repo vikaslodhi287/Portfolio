@@ -1,36 +1,19 @@
-/* ==========================================================
-   MAIN STYLESHEET
-   Global SCSS Entry Point
-========================================================== */
-
-/* ===========================
-   ABSTRACTS
-=========================== */
-
-@use "./abstracts/variables";
-@use "./abstracts/functions";
-@use "./abstracts/mixins";
-
-/* ===========================
-   BASE
-=========================== */
+@forward "./abstracts/variables";
 
 @use "./base/reset";
-@use "./base/typography";
 @use "./base/global";
+@use "./base/typography";
 
-/* ===========================
-   COMPONENTS
-=========================== */
+@use "./layouts/container";
+@use "./layouts/grid";
+@use "./layouts/section";
 
 @use "./components/button";
 @use "./components/card";
 @use "./components/input";
+@use "./components/badge";
+@use "./components/loader";
 
-/* ===========================
-   LAYOUT
-=========================== */
-
-@use "./layout/container";
-@use "./layout/grid";
-@use "./layout/section";
+@use "./utilities/helpers";
+@use "./utilities/layout";
+@use "./utilities/spacing";

@@ -1,11 +1,20 @@
 import api from "../axios";
 
-export const getProfile = async () => {
-  const response = await api.get("/profile");
-  return response.data;
-};
+/* =========================================
+   GET PROFILE
+========================================= */
 
-export const updateProfile = async (formData) => {
+export async function getProfile() {
+  const response = await api.get("/profile");
+
+  return response.data.data;
+}
+
+/* =========================================
+   UPDATE PROFILE
+========================================= */
+
+export async function updateProfile(formData) {
   const response = await api.put("/profile", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -13,4 +22,4 @@ export const updateProfile = async (formData) => {
   });
 
   return response.data;
-};
+}
