@@ -17,7 +17,9 @@
 /* ==========================================================
    BODY
 ========================================================== */
-
+html{
+    scroll-behavior:smooth;
+}
 body {
   background: $color-bg-primary;
   color: $color-text-primary;

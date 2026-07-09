@@ -1,0 +1,18 @@
+import { Navigate } from "react-router-dom";
+
+function ProtectedRoute({ children }) {
+  // TODO:
+  // Replace this with actual authentication logic
+  // Example:
+  // const { isAuthenticated } = useAuth();
+
+  const isAuthenticated = true;
+
+  if (!isAuthenticated) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return children;
+}
+
+export default ProtectedRoute;

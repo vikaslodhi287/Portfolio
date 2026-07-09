@@ -1,24 +1,16 @@
-import { useEffect } from "react";
-import { getProfile } from "./services/api/profile.api";
+import Hero from "./sections/Hero/Hero";
+import About from "./sections/About/About";
+import Skills from "./sections/Skills/Skills";
+import Projects from "./sections/Projects/Projects";
 
 function App() {
-  useEffect(() => {
-    const loadProfile = async () => {
-      try {
-        const data = await getProfile();
-        console.log(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    loadProfile();
-  }, []);
-
   return (
-    <div className="app">
-      <h1>Portfolio Frontend</h1>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+    </>
   );
 }
 

@@ -14,9 +14,12 @@ import "@fontsource/plus-jakarta-sans/800.css";
 import "./styles/main.scss";
 
 import App from "./App.jsx";
+import AppProvider from "./providers/AppProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <AppProvider>
+  <App />
+</AppProvider>
   </React.StrictMode>
 );

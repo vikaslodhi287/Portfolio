@@ -33,6 +33,24 @@ export const updateProfile = async (req, res, next) => {
     let profile = await Profile.findOne();
     const updateData = { ...req.body };
 
+    // Normalize social links into nested object
+if (
+  req.body.github ||
+  req.body.linkedin ||
+  req.body.twitter
+) {
+  updateData.socialLinks = {
+    github: req.body.github || profile?.socialLinks?.github || "",
+    linkedin: req.body.linkedin || profile?.socialLinks?.linkedin || "",
+    twitter: req.body.twitter || profile?.socialLinks?.twitter || "",
+  };
+
+  // Remove top-level keys
+  delete updateData.github;
+  delete updateData.linkedin;
+  delete updateData.twitter;
+}
+
     // Process Avatar image update stream if an image asset file is supplied
     if (req.files && req.files.avatar) {
       const avatarFile = req.files.avatar[0];

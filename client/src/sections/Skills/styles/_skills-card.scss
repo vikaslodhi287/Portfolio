@@ -1,0 +1,251 @@
+.skill-card {
+  position: relative;
+
+  padding: 1.6rem;
+
+  min-height: 220px;
+
+  border-radius: 22px;
+
+  background: rgba(18, 20, 32, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+
+  &:hover {
+    transform: translateY(-12px);
+
+    background: rgba(22, 24, 38, 0.96);
+
+    border-color: rgba(139, 92, 246, 0.45);
+
+    box-shadow:
+      0 25px 60px rgba(99, 102, 241, 0.18),
+      0 0 35px rgba(139, 92, 246, 0.12);
+  }
+
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.08),
+      transparent 45%,
+      rgba(168, 85, 247, 0.06)
+    );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  /* ======================
+        ICON
+  ======================= */
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+
+    border-radius: 16px;
+
+    font-size: 2rem;
+
+    color: #8b5cf6;
+
+    background: rgba(99, 102, 241, 0.1);
+
+    border: 1px solid rgba(99, 102, 241, 0.18);
+
+    transition: all 0.35s ease;
+  }
+
+  &:hover &__icon {
+    transform: rotate(-8deg) scale(1.08);
+
+    color: #a78bfa;
+
+    background: rgba(99, 102, 241, 0.18);
+
+    border-color: rgba(139, 92, 246, 0.4);
+
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.28);
+  }
+
+  /* ======================
+        TOP
+  ======================= */
+
+  &__top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    h3 {
+      color: #fff;
+
+      font-size: 1.35rem;
+
+      font-weight: 700;
+
+      letter-spacing: -0.3px;
+    }
+
+    span {
+      color: #ffffff;
+
+      font-size: 1rem;
+
+      font-weight: 700;
+    }
+  }
+
+  /* ======================
+        CATEGORY
+  ======================= */
+
+  small {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 1rem;
+
+    padding: 0.42rem 0.95rem;
+
+    border-radius: 999px;
+
+    background: rgba(99, 102, 241, 0.1);
+
+    border: 1px solid rgba(99, 102, 241, 0.15);
+
+    color: #b8bfd6;
+
+    font-size: 0.75rem;
+
+    font-weight: 500;
+
+    transition: all 0.35s ease;
+  }
+
+  &:hover small {
+    background: rgba(99, 102, 241, 0.16);
+
+    color: #ffffff;
+  }
+}
+/* ======================================
+      TECH SPECIFIC GLOW
+====================================== */
+
+.skill-card.react:hover{
+    box-shadow:
+      0 25px 60px rgba(97,218,251,.22),
+      0 0 35px rgba(97,218,251,.16);
+}
+
+.skill-card.javascript:hover{
+    box-shadow:
+      0 25px 60px rgba(247,223,30,.18),
+      0 0 35px rgba(247,223,30,.14);
+}
+
+.skill-card.html:hover{
+    box-shadow:
+      0 25px 60px rgba(227,79,38,.22),
+      0 0 35px rgba(227,79,38,.15);
+}
+
+.skill-card.css:hover{
+    box-shadow:
+      0 25px 60px rgba(38,77,228,.22),
+      0 0 35px rgba(38,77,228,.15);
+}
+
+.skill-card.nodejs:hover{
+    box-shadow:
+      0 25px 60px rgba(104,160,99,.22),
+      0 0 35px rgba(104,160,99,.16);
+}
+
+.skill-card.express:hover{
+    box-shadow:
+      0 25px 60px rgba(180,180,180,.18),
+      0 0 35px rgba(180,180,180,.12);
+}
+
+.skill-card.mongodb:hover{
+    box-shadow:
+      0 25px 60px rgba(19,170,82,.22),
+      0 0 35px rgba(19,170,82,.15);
+}
+
+.skill-card.java:hover{
+    box-shadow:
+      0 25px 60px rgba(248,152,32,.22),
+      0 0 35px rgba(248,152,32,.15);
+}
+/* ICON COLORS */
+
+.skill-card__icon.react{
+    color:#61DAFB;
+}
+
+.skill-card__icon.javascript{
+    color:#F7DF1E;
+}
+
+.skill-card__icon.html{
+    color:#E34F26;
+}
+
+.skill-card__icon.css{
+    color:#264DE4;
+}
+
+.skill-card__icon.nodejs{
+    color:#68A063;
+}
+
+.skill-card__icon.express{
+    color:#ffffff;
+}
+
+.skill-card__icon.mongodb{
+    color:#13AA52;
+}
+
+.skill-card__icon.java{
+    color:#F89820;
+}

@@ -1,37 +1,40 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import Admin from '../models/Admin.js'; 
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Admin from "../models/Admin.js";
 
 dotenv.config();
 
-const createSecureAdmin = async () => {
+const createAdmin = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/portfolio');
-    console.log('Database connected successfully.');
+    await mongoose.connect(process.env.MONGO_URI);
 
-    // Clean out old matching entries to keep validation pristine
-    await Admin.deleteMany({ email: 'developer@portfolio.com' });
+    console.log("✅ MongoDB Connected");
 
-    const targetAdmin = new Admin({
-      username: 'admin', // Added the missing field required by your model validation rule
-      email: 'developer@portfolio.com',
-      password: 'SecurePassword123!', 
-      fullName: 'Vikas Lodhi'
+    // Delete old admin if exists
+    await Admin.deleteOne({
+      email: "vikaslodhi287@gmail.com",
     });
 
-    await targetAdmin.save();
-    console.log('==================================================');
-    console.log('ADMIN ACCOUNT CREATED SUCCESSFULLY!');
-    console.log('Username: admin');
-    console.log('Email: developer@portfolio.com');
-    console.log('Password: SecurePassword123!');
-    console.log('==================================================');
+    const admin = await Admin.create({
+      username: "vikaslodhi",
+      email: "vikaslodhi287@gmail.com",
+      password: "vi$12ka3@#",
+      role: "superadmin",
+    });
+
+    console.log("\n==============================");
+    console.log("✅ Admin Created Successfully");
+    console.log("==============================");
+    console.log("Username :", admin.username);
+    console.log("Email    :", admin.email);
+    console.log("Role     :", admin.role);
+    console.log("==============================\n");
 
     process.exit(0);
   } catch (error) {
-    console.error('Failed to inject admin user:', error);
+    console.error("❌ Error:", error);
     process.exit(1);
   }
 };
 
-createSecureAdmin();
+createAdmin();

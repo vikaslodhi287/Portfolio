@@ -1,0 +1,86 @@
+@use "../../../styles/abstracts/mixins" as *;
+
+@include tablet {
+
+  .hero {
+
+    text-align:center;
+
+    &__container{
+
+      grid-template-columns:1fr;
+
+      gap:4rem;
+
+    }
+
+    &__badge{
+
+      margin-inline:auto;
+
+    }
+
+    &__buttons,
+    &__stats{
+
+      justify-content:center;
+
+    }
+
+  }
+
+  .hero-image-wrapper{
+
+      width:360px;
+      height:360px;
+
+  }
+
+  .hero-image{
+
+      width:300px;
+      height:300px;
+
+  }
+
+  .orbit--one{
+
+      width:340px;
+      height:340px;
+
+  }
+
+  .orbit--two{
+
+      width:390px;
+      height:390px;
+
+  }
+
+  .tech-node{
+
+      left:-15px;
+
+  }
+
+  .tech-mongo{
+
+      right:-15px;
+
+  }
+
+  .tech-badge{
+
+      min-width:auto;
+
+      padding:.65rem;
+
+      span{
+
+          display:none;
+
+      }
+
+  }
+
+}
