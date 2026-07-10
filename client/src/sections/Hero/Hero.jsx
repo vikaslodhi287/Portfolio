@@ -1,35 +1,30 @@
 import styles from "./styles/Hero.module.scss";
-import HeroSocial from "./components/HeroSocial";
-import HeroBadge from "./components/HeroBadge";
-import HeroHeading from "./components/HeroHeading";
-import HeroDescription from "./components/HeroDescription";
-import HeroButtons from "./components/HeroButtons";
+
+import HeroContent from "./components/HeroContent";
 import HeroImage from "./components/HeroImage";
-import HeroStats from "./components/HeroStats";
-import HeroTechStack from "./components/HeroTechStack";
 import HeroScrollIndicator from "./components/HeroScrollIndicator";
 
-function Hero() {
-  return (
-    <section className={styles.hero} id="home">
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={styles.content}>
-            <HeroBadge />
-            <HeroHeading />
-            <HeroDescription />
-            <HeroButtons />
-            <HeroSocial />
-            <HeroStats />
-            <HeroTechStack />
-            <HeroScrollIndicator />
-          </div>
-        </div>
+import useProfile from "../../hooks/useProfile";
 
-        <div className={styles.right}>
-          <HeroImage />
-        </div>
+function Hero() {
+  const { profile, loading } = useProfile();
+
+  if (loading || !profile) return null;
+
+  return (
+    <section
+      id="home"
+      className={styles.hero}
+    >
+      <div className={styles.backgroundGlow}></div>
+
+      <div className={styles.container}>
+        <HeroContent profile={profile} />
+
+        <HeroImage profile={profile} />
       </div>
+
+      <HeroScrollIndicator />
     </section>
   );
 }

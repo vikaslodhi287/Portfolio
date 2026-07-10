@@ -12,7 +12,7 @@ import fs from "fs";
  */
 export const getProfile = async (req, res, next) => {
   try {
-    const profile = await Profile.findOne();
+    const profile = await Profile.findOne().lean();
 
     if (!profile) {
       return next(

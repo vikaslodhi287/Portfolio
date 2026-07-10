@@ -1,0 +1,139 @@
+.buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    margin-top:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    height:58px;
+
+    padding:0 28px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.primaryBtn{
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #A855F7,
+        #7C5CFF,
+        #38BDF8
+    );
+
+    background-size:200%;
+
+    box-shadow:
+        0 10px 35px rgba(124,92,255,.35);
+
+}
+
+.primaryBtn:hover{
+
+    transform:translateY(-6px);
+
+    background-position:right;
+
+    box-shadow:
+        0 18px 45px rgba(124,92,255,.45);
+
+}
+
+.primaryBtn svg{
+
+    transition:.3s;
+
+}
+
+.primaryBtn:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+.secondaryBtn{
+
+    color:white;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(124,92,255,.35);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.secondaryBtn:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#7C5CFF;
+
+    background:rgba(124,92,255,.12);
+
+    box-shadow:
+        0 15px 40px rgba(124,92,255,.22);
+
+}
+
+.secondaryBtn svg{
+
+    transition:.3s;
+
+}
+
+.secondaryBtn:hover svg{
+
+    transform:translateY(2px);
+
+}
+
+@media(max-width:768px){
+
+    .buttons{
+
+        justify-content:center;
+
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+}

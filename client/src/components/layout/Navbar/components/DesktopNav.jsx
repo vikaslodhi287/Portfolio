@@ -1,28 +1,27 @@
-import styles from "../Navbar.module.scss";
-
+import styles from "../styles/Navbar.module.scss";
 import NavItem from "./NavItem";
-
-import { useNavigationContext } from "../../../../contexts/NavigationContext";
-
 import useActiveSection from "../hooks/useActiveSection";
 
 function DesktopNav() {
-
   const activeSection = useActiveSection();
 
-  const { navItems, loading, error } =
-    useNavigationContext();
-
-  if (loading || error) return null;
+  const navItems = [
+    { label: "Home", href: "#home", id: "home" },
+    { label: "About", href: "#about", id: "about" },
+    { label: "Skills", href: "#skills", id: "skills" },
+    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "Experience", href: "#experience", id: "experience" },
+    { label: "Education", href: "#education", id: "education" },
+    { label: "Contact", href: "#contact", id: "contact" },
+  ];
 
   return (
     <nav className={styles.desktopNav}>
       {navItems.map((item) => (
         <NavItem
           key={item.id}
-          label={item.label}
-          href={item.href}
-          active={activeSection === item.slug}
+          item={item}
+          active={activeSection === item.id}
         />
       ))}
     </nav>

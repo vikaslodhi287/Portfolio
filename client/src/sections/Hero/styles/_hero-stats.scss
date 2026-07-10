@@ -1,52 +1,126 @@
 @use "../../../styles/abstracts/variables" as *;
 
-.stats {
-  display: flex;
-  gap: 18px;
+.stats{
 
-  margin-top: 40px;
+    display:grid;
 
-  flex-wrap: wrap;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin-top:42px;
+
 }
 
-.statCard {
-  min-width: 140px;
+.statCard{
 
-  padding: 22px;
+    position:relative;
 
-  border-radius: 18px;
+    padding:24px;
 
-  background: rgba(255,255,255,.04);
+    border-radius:22px;
 
-  border: 1px solid rgba(255,255,255,.08);
+    overflow:hidden;
 
-  backdrop-filter: blur(18px);
+    background:rgba(255,255,255,.04);
 
-  transition: .3s;
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+
 }
 
-.statCard:hover {
-  transform: translateY(-8px);
+.statCard::before{
 
-  border-color: rgba(124,92,252,.4);
+    content:"";
 
-  box-shadow: 0 10px 35px rgba(124,92,252,.18);
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(124,92,255,.18),
+        transparent
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
 }
 
-.statCard h3 {
-  color: $color-primary;
+.statCard:hover{
 
-  font-size: 34px;
+    transform:translateY(-10px);
 
-  font-weight: 700;
+    border-color:#7C5CFF;
 
-  margin-bottom: 8px;
+    box-shadow:
+        0 15px 40px rgba(124,92,255,.22);
+
 }
 
-.statCard p {
-  color: $color-body;
+.statCard:hover::before{
 
-  font-size: 15px;
+    opacity:1;
 
-  margin: 0;
+}
+
+.statIcon{
+
+    width:54px;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:16px;
+
+    color:#fff;
+
+    margin-bottom:18px;
+
+    background:linear-gradient(
+        135deg,
+        #A855F7,
+        #7C5CFF
+    );
+
+}
+
+.statCard h3{
+
+    font-size:34px;
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+    font-weight:800;
+
+}
+
+.statCard p{
+
+    color:#AEB3C7;
+
+    margin:0;
+
+}
+
+@media(max-width:768px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
 }

@@ -1,14 +1,20 @@
 @use "../../../styles/abstracts/variables" as *;
 
 .content{
-    max-width: 560px;
+    max-width:580px;
 
     display:flex;
 
     flex-direction:column;
 
-    gap:24px;
+    justify-content:center;
+
+    gap:28px;
+
+    animation:fadeUp .8s ease;
 }
+
+/* Badge */
 
 .badge{
 
@@ -16,74 +22,125 @@
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
 
-    padding:12px 22px;
+    width:fit-content;
+
+    padding:14px 22px;
 
     border-radius:999px;
 
-    background:rgba(124,92,252,.12);
+    background:rgba(124,92,255,.10);
 
-    border:1px solid rgba(124,92,252,.28);
+    border:1px solid rgba(124,92,255,.22);
 
-    color:#BFAFFF;
+    color:#D8CBFF;
 
     font-size:15px;
 
     font-weight:600;
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
+
+    box-shadow:0 0 25px rgba(124,92,255,.12);
 }
+
+.badge:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 35px rgba(124,92,255,.28);
+
+}
+
+.badgeRocket{
+
+    font-size:18px;
+}
+
+.badgeDot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#31f38b;
+
+    margin-left:4px;
+
+    box-shadow:0 0 18px #31f38b;
+
+    animation:pulseDot 1.5s infinite;
+}
+
+/* Greeting */
 
 .greeting{
 
-    color:$color-muted;
+    font-size:30px;
 
-    font-size:22px;
+    color:#D8D8E5;
+
+    font-weight:600;
+
+    margin-top:20px;
 }
+
+/* Name */
 
 .name{
 
-     font-size: clamp(56px,6vw,68px);
+    font-size:clamp(64px,7vw,88px);
 
-    line-height:1.05;
+    line-height:.95;
 
-    letter-spacing: -2px;
+    font-weight:900;
 
-    font-weight:800;
-
-    color:$color-heading;
+    letter-spacing:-3px;
 }
+
+.gradientText{
+
+    background:linear-gradient(
+        90deg,
+        #BB7EFF,
+        #7C5CFF,
+        #3FD6FF
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-size:200%;
+
+    animation:gradientMove 6s linear infinite;
+}
+
+/* Title */
 
 .title{
 
-    color:$color-primary;
+    font-size:38px;
 
-    font-size:34px;
+    color:#ECECF5;
 
     font-weight:700;
 }
 
+/* Description */
+
 .description{
 
-    color:$color-body;
+    max-width:560px;
 
-    font-size:18px;
-
-    line-height:1.8;
-
-     margin-top:12px;
-
-    max-width:540px;
+    color:#B9BDD2;
 
     line-height:1.9;
-}
-.buttons {
-  display: flex;
 
-  align-items: center;
-  
-  gap: 18px;
-
-  margin-top: 44px;
-
-  flex-wrap: wrap;
+    font-size:19px;
 }

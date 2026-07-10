@@ -14,8 +14,13 @@ const profileUploadPayloadParser = upload.fields([
 ]);
 
 // GET: Public, POST: Private & Securely Validated Post-Parsing
-router.route('/')
+router
+  .route("/")
   .get(getProfile)
-  .post(protect, profileUploadPayloadParser, validate(profileRules), updateProfile);
-
+  .put(
+    protect,
+    profileUploadPayloadParser,
+    validate(profileRules),
+    updateProfile
+  );
 export default router;

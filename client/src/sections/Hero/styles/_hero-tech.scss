@@ -1,41 +1,78 @@
 @use "../../../styles/abstracts/variables" as *;
 
-.techStack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.techStack{
 
-  margin-top: 36px;
+    display:flex;
 
-  max-width: 600px;
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:42px;
+
 }
 
-.techChip {
-  padding: 10px 18px;
+.techChip{
 
-  border-radius: 999px;
+    display:flex;
 
-  background: rgba(255,255,255,.05);
+    align-items:center;
 
-  border: 1px solid rgba(255,255,255,.08);
+    gap:10px;
 
-  color: $color-body;
+    padding:12px 18px;
 
-  font-size: 14px;
+    border-radius:999px;
 
-  font-weight: 500;
+    background:rgba(255,255,255,.05);
 
-  transition: all .3s ease;
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+    cursor:default;
+
 }
 
-.techChip:hover {
-  transform: translateY(-4px);
+.techChip span{
 
-  color: white;
+    color:#D9DCEF;
 
-  background: rgba(124,92,252,.15);
+    font-size:14px;
 
-  border-color: rgba(124,92,252,.4);
+    font-weight:600;
 
-  box-shadow: 0 0 18px rgba(124,92,252,.2);
+}
+
+.techChip svg{
+
+    color:#8B5CF6;
+
+}
+
+.techChip:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    border-color:#7C5CFF;
+
+    background:rgba(124,92,255,.15);
+
+    box-shadow:
+        0 12px 28px rgba(124,92,255,.22);
+
+}
+
+@media(max-width:768px){
+
+    .techStack{
+
+        justify-content:center;
+
+    }
+
 }

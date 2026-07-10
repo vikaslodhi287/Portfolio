@@ -1,40 +1,70 @@
-@use "../../../styles/abstracts/variables" as *;
+.social{
 
-.social {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+    display:flex;
 
-  margin-top: 32px;
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:18px;
+
 }
 
-.socialLink {
-  width: 52px;
-  height: 52px;
+.socialLink{
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width:58px;
 
-  border-radius: 50%;
+    height:58px;
 
-  background: rgba(255, 255, 255, 0.04);
+    display:flex;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content:center;
 
-  color: $color-body;
+    align-items:center;
 
-  transition: all 0.3s ease;
+    border-radius:50%;
+
+    text-decoration:none;
+
+    color:#D7D9E7;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
 }
 
-.socialLink:hover {
-  transform: translateY(-6px);
+.socialLink:hover{
 
-  color: $color-primary;
+    transform:
+        translateY(-8px)
+        rotate(8deg);
 
-  border-color: rgba(124, 92, 252, 0.4);
+    color:#7C5CFF;
 
-  background: rgba(124, 92, 252, 0.12);
+    border-color:#7C5CFF;
 
-  box-shadow: 0 0 25px rgba(124, 92, 252, 0.25);
+    background:rgba(124,92,255,.15);
+
+    box-shadow:
+        0 15px 35px rgba(124,92,255,.28);
+
+}
+
+@media(max-width:768px){
+
+    .social{
+
+        justify-content:center;
+
+        width:100%;
+
+        flex-wrap:wrap;
+
+    }
+
 }

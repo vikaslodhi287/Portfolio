@@ -1,5 +1,23 @@
+import {
+  Atom,
+  Database,
+  Server,
+  Code2,
+  GitBranch,
+  Cpu,
+} from "lucide-react";
+
 import { useProfileContext } from "../../../contexts/ProfileContext";
 import styles from "../styles/Hero.module.scss";
+
+const iconMap = {
+  React: <Atom size={16} />,
+  "Node.js": <Server size={16} />,
+  Express: <Server size={16} />,
+  MongoDB: <Database size={16} />,
+  JavaScript: <Code2 size={16} />,
+  Git: <GitBranch size={16} />,
+};
 
 function HeroTechStack() {
   const { profile, loading } = useProfileContext();
@@ -7,14 +25,16 @@ function HeroTechStack() {
   if (loading || !profile) return null;
 
   return (
-    <div className={styles.techStack}>
+    <div className={`${styles.techStack} hero-tech`}>
       {profile.techStack?.map((tech) => (
-        <span
+        <div
           key={tech}
           className={styles.techChip}
         >
-          {tech}
-        </span>
+          {iconMap[tech] || <Cpu size={16} />}
+
+          <span>{tech}</span>
+        </div>
       ))}
     </div>
   );

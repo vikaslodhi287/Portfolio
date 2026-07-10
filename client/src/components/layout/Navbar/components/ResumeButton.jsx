@@ -1,18 +1,15 @@
-import Button from "../../../ui/Button";
+import styles from "../styles/Navbar.module.scss";
 
 function ResumeButton() {
-  function handleResumeClick() {
-    console.log("Resume Clicked");
-  }
-
   return (
-    <Button
-      variant="primary"
-      size="md"
-      onClick={handleResumeClick}
+    <a
+      href="/resume.pdf"
+      className={styles.resumeButton}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       Resume
-    </Button>
+    </a>
   );
 }
 

@@ -1,33 +1,30 @@
 import { useEffect, useState } from "react";
 import { getProfile } from "../services/api/profile.api";
 
-function useProfile() {
+export default function useProfile() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    loadProfile();
-  }, []);
-
-  async function loadProfile() {
-    try {
-      const response = await getProfile();
-      setProfile(response.data);
-    } catch (err) {
-      console.error(err);
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    async function fetchProfile() {
+      try {
+        const data = await getProfile();
+        setProfile(data);
+      } catch (err) {
+        console.error(err);
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     }
-  }
+
+    fetchProfile();
+  }, []);
 
   return {
     profile,
     loading,
     error,
-    reload: loadProfile,
   };
 }
-
-export default useProfile;

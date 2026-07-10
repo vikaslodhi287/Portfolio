@@ -1,13 +1,10 @@
 import styles from "../styles/Hero.module.scss";
-import { useProfileContext } from "../../../contexts/ProfileContext";
 
-function HeroDescription() {
-  const { profile, loading } = useProfileContext();
-
-  if (loading || !profile) return null;
+function HeroDescription({ profile }) {
+  if (!profile) return null;
 
   return (
-    <p className={styles.description}>
+    <p className={`${styles.description} hero-description`}>
       {profile.bio}
     </p>
   );

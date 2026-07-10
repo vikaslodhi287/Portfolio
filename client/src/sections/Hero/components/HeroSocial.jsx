@@ -1,5 +1,5 @@
 import {
-  GitBranch,
+  Github,
   Linkedin,
   Twitter,
   Code2,
@@ -9,6 +9,7 @@ import { useProfileContext } from "../../../contexts/ProfileContext";
 import styles from "../styles/Hero.module.scss";
 
 function HeroSocial() {
+
   const { profile, loading } = useProfileContext();
 
   if (loading || !profile) return null;
@@ -17,29 +18,30 @@ function HeroSocial() {
 
   const items = [
     {
-      icon: <GitBranch size={20} />,
+      icon: <Github size={21} />,
       url: social.github,
       label: "GitHub",
     },
     {
-      icon: <Linkedin size={20} />,
+      icon: <Linkedin size={21} />,
       url: social.linkedin,
       label: "LinkedIn",
     },
     {
-      icon: <Code2 size={20} />,
+      icon: <Code2 size={21} />,
       url: social.leetcode,
       label: "LeetCode",
     },
     {
-      icon: <Twitter size={20} />,
+      icon: <Twitter size={21} />,
       url: social.twitter,
       label: "Twitter",
     },
   ];
 
   return (
-    <div className={styles.social}>
+    <div className={`${styles.social} hero-social`}>
+
       {items.map(
         (item) =>
           item.url && (
@@ -47,14 +49,14 @@ function HeroSocial() {
               key={item.label}
               href={item.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               className={styles.socialLink}
-              aria-label={item.label}
             >
               {item.icon}
             </a>
           )
       )}
+
     </div>
   );
 }

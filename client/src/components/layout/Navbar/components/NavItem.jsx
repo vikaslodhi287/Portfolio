@@ -1,27 +1,14 @@
-import styles from "../Navbar.module.scss";
-import { scrollToSection } from "../utils/scrollToSection";
+import styles from "../styles/Navbar.module.scss";
 
-function NavItem({
-  label,
-  href,
-  active = false,
-}) {
-
-  function handleClick(e) {
-    e.preventDefault();
-
-    scrollToSection(href);
-  }
-
+function NavItem({ item, active }) {
   return (
     <a
-      href={href}
-      onClick={handleClick}
-      className={`${styles.navLink} ${
+      href={item.href}
+      className={`${styles.navItem} ${
         active ? styles.active : ""
       }`}
     >
-      {label}
+      {item.label}
     </a>
   );
 }

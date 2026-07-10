@@ -1,48 +1,110 @@
-@use "../../../styles/abstracts/variables" as *;
-
 .scrollIndicator {
-  position: absolute;
 
-  left: 50%;
+    position: absolute;
 
-  bottom: 32px;
+    left: 60px;
 
-  transform: translateX(-50%);
+    bottom: 40px;
 
-  display: flex;
+    display: flex;
 
-  flex-direction: column;
+    align-items: center;
 
-  align-items: center;
+    gap: 14px;
 
-  gap: 8px;
+    color: #8b90a8;
 
-  color: $color-muted;
+    font-size: 15px;
 
-  cursor: pointer;
+    letter-spacing: 4px;
 
-  animation: floatScroll 2s ease-in-out infinite;
+    text-transform: uppercase;
+
+    z-index: 20;
+
+    opacity: .8;
+
+    animation: scrollFloat 2.2s ease-in-out infinite;
 }
 
-.scrollIndicator span {
-  font-size: 13px;
+.scrollMouse{
 
-  letter-spacing: 2px;
+    width:24px;
 
-  text-transform: uppercase;
+    height:40px;
+
+    border-radius:20px;
+
+    border:2px solid rgba(255,255,255,.28);
+
+    position:relative;
 }
 
-.scrollIndicator svg {
-  color: $color-primary;
+.scrollMouse::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+
+    height:8px;
+
+    border-radius:20px;
+
+    background:#7C5CFF;
+
+    left:50%;
+
+    top:8px;
+
+    transform:translateX(-50%);
+
+    animation:wheel 1.6s infinite;
 }
 
-@keyframes floatScroll {
-  0%,
-  100% {
-    transform: translate(-50%, 0);
-  }
+@keyframes wheel{
 
-  50% {
-    transform: translate(-50%, 10px);
-  }
+    0%{
+
+        transform:translate(-50%,0);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translate(-50%,12px);
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes scrollFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .scrollIndicator{
+
+        display:none;
+
+    }
+
 }

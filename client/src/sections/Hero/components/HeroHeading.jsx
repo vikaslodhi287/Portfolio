@@ -1,22 +1,21 @@
 import styles from "../styles/Hero.module.scss";
-import { useProfileContext } from "../../../contexts/ProfileContext";
 
-function HeroHeading() {
-  const { profile, loading } = useProfileContext();
-
-  if (loading || !profile) return null;
+function HeroHeading({ profile }) {
+  if (!profile) return null;
 
   return (
     <>
-      <span className={styles.greeting}>
+      <p className={`${styles.greeting} hero-greeting`}>
         Hi, I'm
-      </span>
+      </p>
 
-      <h1 className={styles.name}>
-        {profile.fullName}
+      <h1 className={`${styles.name} hero-title`}>
+        <span className={styles.gradientText}>
+          {profile.fullName}
+        </span>
       </h1>
 
-      <h2 className={styles.title}>
+      <h2 className={`${styles.title} hero-subtitle`}>
         {profile.title}
       </h2>
     </>

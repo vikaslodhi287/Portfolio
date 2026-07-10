@@ -4,25 +4,28 @@ import HeroBadge from "./HeroBadge";
 import HeroHeading from "./HeroHeading";
 import HeroDescription from "./HeroDescription";
 import HeroButtons from "./HeroButtons";
+import HeroSocial from "./HeroSocial";
+import HeroStats from "./HeroStats";
+import HeroTechStack from "./HeroTechStack";
 
-import { useProfileContext } from "../../../contexts/ProfileContext";
-
-function HeroContent() {
-  const { profile, loading, error } = useProfileContext();
-
-  if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>{error}</h2>;
+function HeroContent({ profile }) {
   if (!profile) return null;
 
   return (
     <div className={styles.content}>
-      <HeroBadge />
+      <HeroBadge profile={profile} />
 
-      <HeroHeading />
+      <HeroHeading profile={profile} />
 
-      <HeroDescription />
+      <HeroDescription profile={profile} />
 
-      <HeroButtons />
+      <HeroButtons profile={profile} />
+
+      <HeroSocial profile={profile} />
+
+      <HeroStats profile={profile} />
+
+      <HeroTechStack profile={profile} />
     </div>
   );
 }

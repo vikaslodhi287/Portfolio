@@ -1,44 +1,82 @@
-@use "../../../styles/abstracts/variables" as *;
-
 .hero {
-  position: relative;
-
   min-height: 100vh;
 
   display: flex;
   align-items: center;
 
-  background: $color-background;
-
-  padding-top: 120px; // don't make this 170px or 180px
-  padding-bottom: 60px;
-
+  position: relative;
   overflow: hidden;
+
+  padding: 150px 0 90px;
+}
+
+.backgroundGlow {
+  position: absolute;
+
+  right: -220px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 750px;
+  height: 750px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+      circle,
+      rgba(124, 92, 255, .18) 0%,
+      transparent 70%
+  );
+
+  filter: blur(40px);
+
+  pointer-events: none;
 }
 
 .container {
-  width: min(1280px, calc(100% - 80px));
+
+  width: min(1400px, calc(100% - 120px));
+
   margin-inline: auto;
 
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
 
   gap: 90px;
 
-  align-items: start;   
+  position: relative;
+
+  z-index: 2;
 }
 
-.left {
+.content {
+
+  max-width: 620px;
+
+  justify-self: start;
+}
+
+.imageWrapper {
+
+  justify-self: center;
+
+  align-self: start;
+
   display: flex;
+
+  justify-content: center;
+
   align-items: center;
 
-  padding-top: 0;   // remove extra top spacing
-}
+  position: relative;
 
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  min-height: 650px;
 
-  padding-top: 40px;   // adjust between 20px–60px if needed
+  padding-top: 40px;
+
+  transform: translateY(-50px);
 }

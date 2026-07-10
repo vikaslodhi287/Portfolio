@@ -1,30 +1,56 @@
-import styles from "./Navbar.module.scss";
+import { useState } from "react";
+
+import styles from "./styles/Navbar.module.scss";
 
 import Logo from "./components/Logo";
 import DesktopNav from "./components/DesktopNav";
 import ResumeButton from "./components/ResumeButton";
 import ThemeToggle from "./components/ThemeToggle";
 import MenuButton from "./components/MenuButton";
+import MobileNav from "./components/MobileNav";
+
+import { NavigationProvider } from "./context/NavigationContext";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
-    <header className={styles.header}>
-      <div className={styles.navbar}>
-        <div className={styles.left}>
-          <Logo />
+    <NavigationProvider>
+      <header className={styles.header}>
+        <div className={styles.navbar}>
+          {/* Left */}
+          <div className={styles.left}>
+            <Logo />
+          </div>
+
+          {/* Center */}
+          <div className={styles.center}>
+            <DesktopNav />
+          </div>
+
+          {/* Right */}
+          <div className={styles.right}>
+            <ResumeButton />
+            <ThemeToggle />
+
+            <MenuButton
+              isOpen={isMenuOpen}
+              toggleMenu={toggleMenu}
+            />
+          </div>
         </div>
 
-        <div className={styles.center}>
-          <DesktopNav />
-        </div>
-
-        <div className={styles.right}>
-          <ResumeButton />
-          <ThemeToggle />
-          <MenuButton />
-        </div>
-      </div>
-    </header>
+        {/* Mobile Drawer */}
+        <MobileNav
+          isOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+        />
+      </header>
+    </NavigationProvider>
   );
 }
 

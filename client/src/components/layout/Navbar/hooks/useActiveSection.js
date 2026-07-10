@@ -1,39 +1,35 @@
 import { useEffect, useState } from "react";
 
 export default function useActiveSection() {
-
-  const [active, setActive] = useState("about");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
+    const sections = [...document.querySelectorAll("section[id]")];
 
-    const sections =
-      document.querySelectorAll("section[id]");
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-    function onScroll() {
+      for (const section of sections) {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
 
-      let current = "about";
-
-      sections.forEach((section) => {
-
-        const top = section.offsetTop - 150;
-
-        if (window.scrollY >= top) {
-          current = section.id;
+        if (
+          scrollPosition >= top &&
+          scrollPosition < top + height
+        ) {
+          setActiveSection(section.id);
+          break;
         }
+      }
+    };
 
-      });
+    handleScroll();
 
-      setActive(current);
-
-    }
-
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () =>
-      window.removeEventListener("scroll", onScroll);
-
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return active;
-
+  return activeSection;
 }
