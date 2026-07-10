@@ -1,0 +1,94 @@
+@use "../../../styles/abstracts/variables" as *;
+
+
+.skillCard {
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 22px;
+
+  padding: 42px 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 18px;
+
+  transition:
+  transform 0.35s ease,
+  box-shadow 0.35s ease,
+  border-color 0.35s ease,
+  background 0.35s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  border-color: rgba(124, 92, 252, 0.45);
+
+  background: linear-gradient(
+    180deg,
+    rgba(124, 92, 252, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+
+  box-shadow:
+    0 20px 40px rgba(124, 92, 252, 0.15),
+    0 0 30px rgba(124, 92, 252, 0.08);
+}
+
+.skillIcon {
+  width: 88px;
+
+  height: 88px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(124, 92, 252, 0.18);background: rgba(124, 92, 252, 0.18);
+
+   transform: rotate(-8deg);
+}
+
+.skillIcon svg {
+  width: 48px;
+
+  height: 48px;
+
+  color: $color-primary;
+
+  transition: 0.3s ease;
+}
+
+.skillCard:hover .skillIcon svg {
+  transform: rotate(8deg) scale(1.1);
+
+  color: #9b7dff;
+}
+
+.skillCard h3 {
+  color: $color-heading;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.skillCard span {
+  color: $color-primary;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}

@@ -1,0 +1,114 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.educationCard {
+  display: grid;
+
+  grid-template-columns: 320px 1fr;
+
+  gap: 50px;
+
+  align-items: center;
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  transition: .35s ease;
+}
+
+.educationCard:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(124,92,252,.35);
+
+    box-shadow:0 20px 50px rgba(124,92,252,.15);
+
+    background:linear-gradient(
+        180deg,
+        rgba(124,92,252,.08),
+        rgba(255,255,255,.03)
+    );
+}
+
+.icon{
+    width:76px;
+
+    height:76px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(124,92,252,.12);
+
+    color:$color-primary;
+
+    margin-bottom:25px;
+}
+.duration {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: $color-primary;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.educationCard h3{
+    margin:18px 0 10px;
+
+    font-size:36px;
+
+    font-weight:700;
+}
+
+.educationCard h4{
+    font-size:22px;
+
+    color:$color-body;
+}
+
+.institution{
+    color:$color-primary;
+
+    font-weight:700;
+
+    margin:18px 0;
+}
+
+.grade{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:18px;
+
+    color:$color-heading;
+
+    font-weight:600;
+}
+
+.description{
+    color:$color-body;
+
+    font-size:18px;
+
+    line-height:2;
+
+    max-width:520px;
+}

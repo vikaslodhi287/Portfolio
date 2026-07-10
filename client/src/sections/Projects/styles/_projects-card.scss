@@ -1,0 +1,166 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.projectCard {
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  transition: .35s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(124,92,252,.35);
+
+  box-shadow:
+    0 20px 50px rgba(124,92,252,.18);
+}
+
+.projectImage {
+  width: 100%;
+
+  height: 320px;
+
+  background: #0f111a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.projectImage img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  transition: transform .4s ease;
+}
+
+.projectCard:hover .projectImage img {
+  transform: scale(1.03);
+}
+
+.projectContent {
+  padding: 28px;
+}
+
+.featuredBadge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(124, 92, 252, 0.12);
+
+  color: $color-primary;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.projectContent h3 {
+  color: $color-heading;
+
+  margin-bottom: 14px;
+
+  font-size: 28px;
+}
+
+.projectContent p {
+  color: $color-body;
+
+  line-height: 1.8;
+
+  margin-bottom: 24px;
+}
+
+.techStack {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+  margin-bottom: 30px;
+}
+.techChip {
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(124, 92, 252, 0.1);
+
+  color: $color-heading;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  margin-top: 30px;
+}
+
+.actions a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  color: white;
+
+  background: $color-primary;
+
+  transition: all 0.3s ease;
+}
+
+.actions a:hover {
+  transform: translateY(-3px);
+
+  background: $color-primary-hover;
+
+  box-shadow: 0 12px 25px rgba(124, 92, 252, 0.25);
+}
+.description {
+  margin: 18px 0 24px;
+
+  color: $color-body;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}

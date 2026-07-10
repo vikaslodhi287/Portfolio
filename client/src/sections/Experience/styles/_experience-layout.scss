@@ -1,0 +1,19 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.experience {
+  padding: 140px 0;
+
+  background: $color-background;
+}
+
+.container {
+  width: min(1280px, calc(100% - 80px));
+
+  margin-inline: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 70px;
+}

@@ -3,12 +3,14 @@
 .imageWrapper {
   position: relative;
 
-  width:  520px;
+  width: 520px;
   height: 520px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transform: none;   // remove translateY()
 }
 
 /* =========================

@@ -1,0 +1,51 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.brand{
+  text-align:center;
+}
+
+.brand h2{
+  font-size:48px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.brand h2 span{
+  color:$color-primary;
+}
+
+.gradient{
+  background:linear-gradient(
+      90deg,
+      #7c5cfc,
+      #b99cff
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.brand p{
+  max-width:520px;
+  margin:auto;
+  color:$color-body;
+  font-size:17px;
+  line-height:1.8;
+}
+.logo{
+  font-size:3.3rem;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:#ffffff;
+}
+
+.logo strong{
+  color:$color-primary;
+}
+
+.logo{
+  margin-bottom:22px;
+}

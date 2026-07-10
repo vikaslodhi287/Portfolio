@@ -1,0 +1,95 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.infoCard{
+
+padding:30px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+flex-direction:column;
+
+gap:26px;
+
+height:100%;
+
+justify-content:flex-start;
+
+}
+.infoCard:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(124,92,252,.4);
+
+box-shadow:0 20px 45px rgba(124,92,252,.18);
+
+}
+
+.infoCard h3 {
+  font-size: 26px;
+
+  color: $color-heading;
+}
+
+.infoItem{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+font-size:16px;
+
+}
+
+.infoItem svg{
+
+color:$color-primary;
+
+width:22px;
+
+height:22px;
+
+}
+.socialLinks{
+
+margin-top:auto;
+
+padding-top:30px;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.socialLinks a{
+
+color:$color-body;
+
+text-decoration:none;
+
+transition:.3s;
+
+font-weight:500;
+
+}
+
+.socialLinks a:hover{
+
+color:$color-primary;
+
+padding-left:8px;
+
+}

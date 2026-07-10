@@ -1,0 +1,39 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.social{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+.social a{
+  position: relative;
+  overflow: hidden;
+}
+
+.social a::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(124,92,252,.15),
+    rgba(124,92,252,.45)
+  );
+
+  opacity: 0;
+  transition: .35s;
+}
+
+.social a:hover::before{
+  opacity: 1;
+}
+
+.social a svg{
+  position: relative;
+  z-index: 2;
+}
+
+.social a:hover{
+  transform: translateY(-6px) scale(1.08);
+}

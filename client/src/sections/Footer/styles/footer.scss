@@ -1,0 +1,35 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.footer{
+  padding:100px 0 40px;
+  position:relative;
+  overflow:hidden;
+}
+
+.footer::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:650px;
+  height:320px;
+  background:$color-primary;
+  filter:blur(180px);
+  opacity:.08;
+  pointer-events:none;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:70px 60px;
+  border-radius:30px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+
+  display:flex;
+  flex-direction:column;
+  gap:45px;
+}

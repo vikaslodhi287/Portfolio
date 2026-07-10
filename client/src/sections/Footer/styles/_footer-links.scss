@@ -1,0 +1,40 @@
+@use "../../../styles/abstracts/variables" as *;
+
+.links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.links a{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.links a::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: $color-primary;
+
+  transform: translateX(-50%);
+  transition: .3s;
+}
+.links a:hover{
+  color: $color-primary;
+}
+
+.links a:hover::after{
+
+width:70%;
+
+}
